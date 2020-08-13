@@ -9,4 +9,6 @@ public interface PaymentRepository extends JpaRepository<PaymentEntity, Long> {
 
     List<PaymentEntity> findAllByCardId(Long idCartao);
 
+    void removeByCardId(Long idCartao);
+
 }

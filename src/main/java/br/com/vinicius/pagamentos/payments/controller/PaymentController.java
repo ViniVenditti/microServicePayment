@@ -5,7 +5,7 @@ import br.com.vinicius.pagamentos.payments.exceptions.CardNotFoundException;
 import br.com.vinicius.pagamentos.payments.exceptions.CardNotHabilitException;
 import br.com.vinicius.pagamentos.payments.mapper.PaymentMapper;
 import br.com.vinicius.pagamentos.payments.model.CardClient;
-import br.com.vinicius.pagamentos.payments.model.CardModel;
+import br.com.vinicius.pagamentos.payments.model.InvoicePaidModel;
 import br.com.vinicius.pagamentos.payments.model.PaymentModel;
 import br.com.vinicius.pagamentos.payments.service.PaymentService;
 import feign.FeignException;
@@ -47,4 +47,8 @@ public class PaymentController {
         return service.paymentExtract(idCard);
     }
 
+    @GetMapping(value = "/pagar/{cardId}")
+    public InvoicePaidModel payInvoice(@PathVariable Long cardId){
+        return service.invoicePaid(cardId);
+    }
 }
