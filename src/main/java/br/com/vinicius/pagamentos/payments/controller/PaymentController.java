@@ -44,6 +44,7 @@ public class PaymentController {
 
     @GetMapping(value = "/{idCard}")
     public List<PaymentModel> getExtract(@PathVariable Long idCard) {
+        boolean b = cardClient.verifyCard(idCard);
         return service.paymentExtract(idCard);
     }
 
